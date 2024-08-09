@@ -1,0 +1,18 @@
+.table-container {
+  overflow: auto;
+  width: 65%;
+}
+.filter-container {
+  width: 30%;
+  margin-right: 20px;
+}
+.container {
+  height: 410px;
+  display: inline-block;
+}
+table {
+  width: 100%;
+}
+.button-clear {
+  float: right;
+}

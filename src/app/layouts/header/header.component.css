@@ -1,0 +1,40 @@
+.navigations ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.navigation {
+  display: inline-block;
+}
+.nav-component {
+  float: left;
+  margin-left: 10px;
+}
+.auth-component {
+  float: right;
+  margin-right: 10px;
+}
+a {
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #f00;
+  text-align: center;
+  margin-top: -10px;
+  color: #000;
+  text-decoration: none;
+}
+a:after {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+a:hover {
+  background-color: #aaa4b1;
+}
+a:active {
+  background-color: #5e8df1;
+}

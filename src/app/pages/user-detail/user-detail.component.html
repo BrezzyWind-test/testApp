@@ -1,0 +1,20 @@
+<div class="user-detail-container">
+  <mat-form-field class="input-width-100">
+    <mat-label>Users</mat-label>
+    <mat-select [(value)]="selectedUser.id">
+      @for (user of userSelect; track user) {
+      <mat-option [value]="user.id">
+        Full Name:
+        {{
+          user.firstName + " " + user.name + " " + (user.lastName ?? "")
+        }}
+        Age: {{ user.age }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <p>Full Name: {{ fullname }}</p>
+  <p>Age: {{ age }}</p>
+  <p>Date Registration: {{ dateRegistration | date : "MM/dd/yyyy" }}</p>
+  <button mat-stroked-button (click)="openDialog()">Edit User</button>
+</div>

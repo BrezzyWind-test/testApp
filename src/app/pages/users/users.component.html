@@ -1,0 +1,98 @@
+<section class="filter-container container">
+  <form class="filter-form" [formGroup]="filterForm">
+    <mat-form-field class="input-width-100">
+      <mat-label>Date From</mat-label>
+      <input
+        matInput
+        [matDatepickerFilter]="filterDate"
+        [matDatepicker]="pickerDateFrom"
+        formControlName="pickerDateFrom"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="pickerDateFrom"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerDateFrom disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="input-width-100">
+      <mat-label>Date To</mat-label>
+      <input
+        matInput
+        [matDatepickerFilter]="filterToDate"
+        [matDatepicker]="pickerDateTo"
+        formControlName="pickerDateTo"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="pickerDateTo"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerDateTo disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="filter-form input-width-100">
+      <mat-label>Age From</mat-label>
+      <input type="number" matInput formControlName="ageFrom" />
+    </mat-form-field>
+    <mat-form-field class="filter-form input-width-100">
+      <mat-label>Age To</mat-label>
+      <input type="number" matInput formControlName="ageTo" />
+    </mat-form-field>
+    <mat-form-field class="filter-form input-width-100">
+      <mat-label>FullName</mat-label>
+      <input type="text" matInput formControlName="fullName" />
+    </mat-form-field>
+    <div class="filter-button-field">
+      <button mat-stroked-button (click)="filter()">Find</button>
+      <button
+        mat-stroked-button
+        class="button-clear"
+        (click)="filterForm.reset()"
+      >
+        Clear
+      </button>
+    </div>
+  </form>
+</section>
+
+<section class="table-container container mat-elevation-z8" tabindex="0">
+  <button mat-stroked-button (click)="openDialog()">Add User</button>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef>Fullname</th>
+      <td mat-cell *matCellDef="let element">
+        {{
+          element.firstName +
+            " " +
+            element.name +
+            " " +
+            (element.lastName ?? "")
+        }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef>Age</th>
+      <td mat-cell *matCellDef="let element">{{ element.age }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateRegistration">
+      <th mat-header-cell *matHeaderCellDef>DateRegistration</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.dateRegistration | date : "MM/dd/yyyy" }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="getRecord(row)"
+    ></tr>
+  </table>
+</section>

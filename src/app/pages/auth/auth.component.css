@@ -1,0 +1,24 @@
+.auth-window {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 600px;
+  height: 480px;
+  padding: 30px;
+}
+
+.auth-header {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.auth-form {
+  margin: 10px 0px 10px 0px;
+  background-color: #ffffff;
+}

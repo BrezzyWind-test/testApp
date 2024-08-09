@@ -1,0 +1,35 @@
+<div class="auth-window">
+  <div class="auth-header header-font">Sign in</div>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+    <mat-form-field class="auth-form input-width-100">
+      <mat-label>Login</mat-label>
+      <input matInput formControlName="login" />
+      @if (this.loginForm.get('login')?.invalid &&
+      this.loginForm.get('login')?.touched) {
+      <mat-error>Login is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="auth-form input-width-100">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        inputSpaceTrim
+      />
+      @if (this.loginForm.get('password')?.invalid &&
+      this.loginForm.get('password')?.touched) {
+      <mat-error>Invalid password (min length 3).</mat-error>
+      }
+    </mat-form-field>
+    <div class="auth-button-field">
+      <button
+        [disabled]="loginForm.invalid"
+        mat-stroked-button
+        class="input-width-100"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

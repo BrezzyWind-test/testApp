@@ -1,0 +1,79 @@
+<section class="add-user-container container">
+  <form class="add-user-form" [formGroup]="addUserForm">
+    <mat-form-field class="auth-form input-width-100">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name" />
+      @if (this.addUserForm.get('name')?.invalid &&
+      this.addUserForm.get('name')?.touched) {
+      <mat-error>Name is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="auth-form input-width-100">
+      <mat-label>FirstName</mat-label>
+      <input type="text" matInput formControlName="firstName" />
+      @if (this.addUserForm.get('firstName')?.invalid &&
+      this.addUserForm.get('firstName')?.touched) {
+      <mat-error>FirstName is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="auth-form input-width-100">
+      <mat-label>LastName</mat-label>
+      <input type="text" matInput formControlName="lastName" />
+    </mat-form-field>
+    <mat-form-field class="auth-form input-width-100">
+      <mat-label>Age</mat-label>
+      <input type="number" matInput formControlName="age" />
+      @if (this.addUserForm.get('age')?.invalid &&
+      this.addUserForm.get('age')?.touched) {
+      <mat-error>Age is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="auth-form input-width-100">
+      <mat-label>Login</mat-label>
+      <input type="text" matInput formControlName="login" />
+      @if (this.addUserForm.get('login')?.invalid &&
+      this.addUserForm.get('login')?.touched) {
+      <mat-error>Login is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="auth-form input-width-100">
+      <mat-label>Password</mat-label>
+      <input type="text" matInput formControlName="password" />
+      @if (this.addUserForm.get('password')?.invalid &&
+      this.addUserForm.get('password')?.touched) {
+      <mat-error>Password is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="input-width-100">
+      <mat-label>Date To</mat-label>
+      <input
+        matInput
+        [matDatepicker]="dateRegistration"
+        formControlName="dateRegistration"
+        [value]=""
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="dateRegistration"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #dateRegistration disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+    <div class="add-button-field">
+      @if (action === 'Add') {<button
+        mat-stroked-button
+        [disabled]="addUserForm.invalid"
+        (click)="addUser()"
+      >
+        {{ action }}</button
+      >} @else {<button
+        mat-stroked-button
+        [disabled]="addUserForm.invalid"
+        (click)="editUser()"
+      >
+        {{ action }}</button
+      >}
+    </div>
+  </form>
+</section>
