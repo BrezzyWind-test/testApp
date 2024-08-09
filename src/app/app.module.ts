@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './pages/auth/auth.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModuleModule } from './modules/shared-module/shared-module.module';
+import { SharedModule } from './modules/shared-module/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { UsersModule } from './pages/users/users.module';
@@ -19,7 +19,7 @@ import { CustomRoute } from './customRoute';
     AppRoutingModule,
     AuthModule,
     BrowserAnimationsModule,
-    SharedModuleModule,
+    SharedModule,
     HttpClientModule,
     UsersModule,
     MatTableModule,

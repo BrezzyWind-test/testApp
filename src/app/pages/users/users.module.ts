@@ -12,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UserAddComponent } from '../../modals/user-add-edit/user-add-edit.component';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { MatSelectModule } from '@angular/material/select';
+import { SharedModule } from '../../modules/shared-module/shared.module';
 
 @NgModule({
   declarations: [UsersComponent, UserAddComponent, UserDetailComponent],
@@ -26,6 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatNativeDateModule,
     MatDialogModule,
     MatSelectModule,
+    SharedModule,
   ],
   providers: [MatDatepickerModule],
 })

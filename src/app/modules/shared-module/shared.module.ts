@@ -6,4 +6,4 @@ import { InputSpaceTrimDirective } from '../../directive/input-space-trim/input-
   imports: [],
   exports: [InputSpaceTrimDirective],
 })
-export class SharedModuleModule {}
+export class SharedModule {}
